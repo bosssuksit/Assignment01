@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sombat Jaideemak - Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: #fff;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        /* =========================
+           Main Container
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 0 84px 40px;
+
+            border-left: 1px solid #1681b8;
+            border-right: 1px solid #1681b8;
+        }
+
+        /* =========================
+           Navbar
+        ========================= */
+
+        nav {
+            height: 65px;
+            background: #1b1b1b;
+            border-radius: 0 0 6px 6px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 85px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 62px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #777;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #666;
+        }
+
+        .social a {
+            color: #666;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            color: #fff;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .hero {
+            min-height: 450px;
+
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 60px;
+
+            padding-top: 45px;
+        }
+
+        .hero-content {
+            padding-bottom: 10px;
+        }
+
+        .hero-number {
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 {
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .hero-description {
+            color: #8b8b8b;
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        /* =========================
+           Button
+        ========================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            margin-top: 14px;
+
+            width: 284px;
+            height: 59px;
+
+            background: #369b00;
+            color: white;
+
+            border-radius: 4px;
+            border: 1px solid #50b91b;
+
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+
+            box-shadow:
+                0 0 15px rgba(54, 155, 0, 0.45),
+                0 8px 25px rgba(54, 155, 0, 0.2);
+
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #45b500;
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 25px rgba(54, 180, 0, 0.7),
+                0 10px 30px rgba(54, 155, 0, 0.3);
+        }
+
+        .btn span {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* =========================
+           Profile Image
+        ========================= */
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile {
+            width: 325px;
+            height: 325px;
+
+            border-radius: 50%;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #444,
+                    #111
+                );
+
+            border: 0 solid transparent;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* =========================
+           Companies
+        ========================= */
+
+        .worked-with {
+            margin-top: 0;
+        }
+
+        .worked-title {
+            color: #ddd;
+            font-size: 13px;
+            margin-bottom: 17px;
+        }
+
+        .companies {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 27px;
+        }
+
+        .company {
+            height: 55px;
+
+            border: 1px solid #202020;
+            border-radius: 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #555;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .company:hover {
+            border-color: #444;
+            color: #888;
+        }
+
+        .company i {
+            margin-right: 5px;
+            font-size: 17px;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .container {
+                padding: 0 35px 40px;
+            }
+
+            nav {
+                padding: 0 35px;
+            }
+
+            .nav-links {
+                gap: 25px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+                padding-top: 60px;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .profile {
+                width: 260px;
+                height: 260px;
+            }
+
+            .companies {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 0 20px 30px;
+            }
+
+            nav {
+                height: auto;
+                min-height: 65px;
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px 25px;
+            }
+
+            .social {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero-number {
+                font-size: 30px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero-description {
+                font-size: 12px;
+            }
+
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 284px;
+            }
+
+            .companies {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- =========================
+             Navigation
+        ========================== -->
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+                <li>
+                    <a href="#case-studies">Case Studies</a>
+                </li>
+
+                <li>
+                    <a href="#testimonials">Testimonials</a>
+                </li>
+
+                <li>
+                    <a href="#recent-work">Recent work</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Get In Touch</a>
+                </li>
+            </ul>
+
+            <div class="social">
+                <a href="#">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-behance"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </nav>
+
+
+        <!-- =========================
+             Hero Section
+        ========================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-number">
+                    6619410007
+                </div>
+
+                <h1>
+                    Sombat Jaideemak
+                </h1>
+
+                <p class="hero-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi rem odit labore unde nemo omnis sequi hic sit
+                    laudantium repellendus recusandae vitae ea laborum,
+                    ipsa nisi eos autem.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Let's get started
+                    <span>›</span>
+                </a>
+
+            </div>
+
+
+            <!-- Profile -->
+
+            <div class="profile-wrapper">
+
+                <div class="profile">
+
+                    <!--
+                        เปลี่ยน profile.jpg
+                        เป็นรูปของคุณ
+                    -->
+
+                    <img
+                        src="profile.jpg"
+                        alt="Sombat Jaideemak"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Worked With
+        ========================== -->
+
+        <section class="worked-with">
+
+            <div class="worked-title">
+                Worked with
+            </div>
+
+            <div class="companies">
+
+                <div class="company">
+                    <i class="fa-solid fa-shapes"></i>
+                    ClickUp
+                </div>
+
+                <div class="company">
+                    <i class="fa-brands fa-dropbox"></i>
+                    Dropbox
+                </div>
+
+                <div class="company">
+                    PAYCHEX
+                </div>
+
+                <div class="company">
+                    <i class="fa-solid fa-atom"></i>
+                    elastic
+                </div>
+
+                <div class="company">
+                    stripe
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dummy sections for navigation -->
+
+        <section id="case-studies"></section>
+        <section id="testimonials"></section>
+        <section id="recent-work"></section>
+        <section id="contact"></section>
+
+    </main>
+
+</body>
+</html>
